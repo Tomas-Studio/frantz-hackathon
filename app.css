@@ -374,9 +374,8 @@ main {
               -webkit-appearance: none;
               & + span > svg {
                 position: absolute;
-                top: 50%;
-                left: 50%;
-                transform: translate(-50%, -50%);
+                top: 2px;
+                left: 2px;
                 opacity: 0;
               }
 
@@ -384,24 +383,35 @@ main {
                 animation: checkSvgAnimation 70ms linear;
                 opacity: 1;
               }
-
               & + span:hover > svg:nth-of-type(2) {
                 opacity: 1;
               }
-
               & + span:hover > svg:nth-of-type(1) {
                 opacity: 0;
               }
-
               &:checked + span > svg:nth-of-type(3){
-                animation: checkedSvgAnimation 200ms linear;
+                animation: checkSvgAnimation 100ms linear;
               }
               &:checked + span > svg:nth-of-type(4){
-                animation: rotate 400ms linear;
-                animation-delay: 200ms;
+                animation: rotate 500ms linear;
+                animation-delay: 100ms;
+              }
+              &:checked + span > svg:nth-of-type(2){
+                opacity: 0;
+              }
+              &:checked + span > svg:nth-of-type(1){
+                opacity: 0;
+              }
+              &:checked + span > svg:nth-of-type(5){
+                animation: checkSvgAnimation 100ms linear;
+                animation-delay: 600ms;
+              }
+              &:checked + span > svg:nth-of-type(6){
+                animation: checked 500ms linear infinite;
+                animation-delay: 700ms;
               }
             }
-            
+
             &:focus {
               outline: none;
               border: none;
@@ -537,20 +547,32 @@ main {
   } 
 }
 
-@keyframes checkedSvgAnimation {
+@keyframes checked {
   0% {
-    opacity: 0;
-   } 
-   50% {
-    opacity: 1;
-   } 
-   100%{
-    opacity: 0;
-   } 
+   opacity: 1;
+  } 
+  100%{
+   opacity: 1;
+  } 
 }
 
 @keyframes rotate {
-
+  0% {
+    transform: rotate(0deg);
+    opacity: 1;
+  }
+  40% {
+    transform: rotate(90deg);
+    opacity: 1;
+  }
+  60% {
+    transform: rotate(270deg);
+    opacity: 1;
+  }
+  100% {
+    transform: rotate(360deg);
+    opacity: 0;
+  }
 }
 
 
