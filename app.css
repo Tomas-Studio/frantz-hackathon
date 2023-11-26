@@ -341,7 +341,6 @@ main {
             }
           }
         }
-
       }
     }
 
@@ -446,6 +445,22 @@ main {
             margin-bottom: 1rem;
           }
         }
+        & .content-img {
+          position: absolute;
+          top: 0.625rem;
+          right: 0.5rem;
+
+          &:before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 2;
+            background: linear-gradient(to top, rgba(243, 243, 243, 1) 0%, rgba(243, 243, 243, 0.9) 15%, rgba(255, 255, 255, 0) 30%);
+          }
+        }
       }
       & details[open] {
         background: rgba(243, 243, 243, 1);
@@ -463,7 +478,6 @@ main {
         margin-top: 1rem;
       }
     }
-
   }
 }
 
