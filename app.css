@@ -458,7 +458,7 @@ main {
           width: 100%;
           & p {
             color: var(--f-mid);
-            width: 62%;
+            width: 64%;
             margin-bottom: 1rem;
             & a {
               color: var(--focused);
