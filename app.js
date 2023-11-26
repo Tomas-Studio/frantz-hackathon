@@ -11,7 +11,7 @@ const checkList = document.querySelector('.check-list')
 toggleGuide.addEventListener("click", () => {
   if(toggleGuide.dataset.toggle === 'closed'){
     toggleGuide.dataset.toggle = 'open'
-    checkList.style.height = `${checkList.scrollHeight}px`
+    checkList.style.height = 'auto'
   } else {
     toggleGuide.dataset.toggle = 'closed' 
     checkList.style.height = '0px'
