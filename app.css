@@ -288,7 +288,7 @@ main {
         & p {
           font-size: var(--text-13);
         }
-        & .stat {
+        & .tracker {
           display: flex;
           align-items: center;
           column-gap: 0.5rem;
@@ -320,6 +320,12 @@ main {
         }
 
       }
+    }
+
+    & .check-list {
+      color: var(--f-dark);
+      overflow: hidden;
+      transition: height 0.25s;
     }
 
   }
