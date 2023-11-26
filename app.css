@@ -353,6 +353,7 @@ main {
 
       & details {
         border-radius: 0.625rem;
+        position: relative;
         padding: 0.5rem 0.5rem 0.75rem 0.5rem;
 
         & summary {
@@ -362,6 +363,50 @@ main {
           list-style: none;
           width: 100%;
           cursor: pointer;
+
+          & label {
+            position: relative;
+            width: 1.5rem;
+            height: 1.5rem;
+            cursor: pointer;
+
+            & input[type="checkbox"] {
+              -webkit-appearance: none;
+              & + span > svg {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                opacity: 0;
+              }
+
+              & + span > svg:nth-of-type(1) {
+                animation: checkSvgAnimation 70ms linear;
+                opacity: 1;
+              }
+
+              & + span:hover > svg:nth-of-type(2) {
+                opacity: 1;
+              }
+
+              & + span:hover > svg:nth-of-type(1) {
+                opacity: 0;
+              }
+
+              &:checked + span > svg:nth-of-type(3){
+                animation: checkedSvgAnimation 200ms linear;
+              }
+              &:checked + span > svg:nth-of-type(4){
+                animation: rotate 400ms linear;
+                animation-delay: 200ms;
+              }
+            }
+            
+            &:focus {
+              outline: none;
+              border: none;
+            }
+          }
 
           & h5{
             font-weight: 500;
@@ -375,9 +420,9 @@ main {
             border-radius: 0.2rem;
           }
         }
-        & div {
+        & .content {
           margin-top: 1rem;
-          margin-left: 1.25rem;
+          margin-left: 2rem;
           font-size: var(--text-13);
           font-weight: 500;
           & p {
@@ -400,6 +445,9 @@ main {
             font-weight: 600;
           }
         }
+      }
+      & details:hover {
+        background: rgba(243, 243, 243, 1);
       }
       & details:first-child {
         margin-top: 1rem;
@@ -473,6 +521,41 @@ main {
     & .guide {}
   }
 }
+
+
+/* keyframes for animation */
+
+@keyframes checkSvgAnimation {
+  0% {
+   opacity: 0;
+  } 
+  50% {
+   opacity: 1;
+  } 
+  100%{
+   opacity: 1;
+  } 
+}
+
+@keyframes checkedSvgAnimation {
+  0% {
+    opacity: 0;
+   } 
+   50% {
+    opacity: 1;
+   } 
+   100%{
+    opacity: 0;
+   } 
+}
+
+@keyframes rotate {
+
+}
+
+
+
+
 
 
 /* .logo {
