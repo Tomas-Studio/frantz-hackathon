@@ -325,7 +325,8 @@ main {
     & .check-list {
       color: var(--f-dark);
       overflow: hidden;
-      transition: height 0.25s;
+      height: 0;
+      transition: height 0.2s linear;
     }
 
   }
