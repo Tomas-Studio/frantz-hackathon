@@ -9,7 +9,7 @@ const setupList = document.querySelectorAll('.setup-detail')
 const track = document.querySelector('.track')
 
 // variables
-let tracking = []
+let completed = []
 
 // control element & styles
 selectBtn.addEventListener("click", ()=> {
@@ -33,12 +33,12 @@ setupList.forEach((item, idx) => {
 
   check.addEventListener('input', (event)=>{
     let value = event.target.value
-    if(tracking.includes(value)){
-      const arrIdx = tracking.indexOf(value)
-      arrIdx > -1 && tracking.splice(arrIdx, 1)
+    if(completed.includes(value)){
+      const arrIdx = completed.indexOf(value)
+      arrIdx > -1 && completed.splice(arrIdx, 1)
       updateRange()
     } else {
-      tracking.push(value)
+      completed.push(value)
       updateRange()
     }
   })
@@ -47,12 +47,12 @@ setupList.forEach((item, idx) => {
     if(item.open){
       event.preventDefault()
       item.style.height = 'auto'
-      closeOthers(idx)
+      closeDetails(idx)
     }
   })
 })
 
-function closeOthers(idx1) {
+function closeDetails(idx1) {
   setupList.forEach((item2, idx2) => {
     if(idx1 !== idx2){
       item2.open = false
@@ -60,12 +60,16 @@ function closeOthers(idx1) {
   })
 }
 
+function openNext() {
+
+}
+
 function updateRange(){
-  range.value = (tracking.length / 5) * 100
+  range.value = (completed.length / 5) * 100
   range.style.backgroundSize = (range.value - range.min) * 100 / (range.max - range.min) + '% 100%'
-  track.innerHTML = tracking.length
+  track.innerHTML = completed.length
 }
 
 // initialize values
 range.style.backgroundSize = (range.value - range.min) * 100 / (range.max - range.min) + '% 100%'
-track.innerHTML = tracking.length
+track.innerHTML = completed.length
