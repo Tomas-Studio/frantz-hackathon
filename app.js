@@ -45,8 +45,11 @@ setupList.forEach((item, idx) => {
 
   item.addEventListener('toggle', ()=> {
     if(item.open){
+      item.style.height = `${item.scrollHeight + 20}px`
       closeOthers(idx)
-    } 
+    } else {
+      item.style.height = '2.75rem'
+    }
   })
 })
 

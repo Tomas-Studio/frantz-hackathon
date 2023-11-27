@@ -347,6 +347,7 @@ main {
             border-radius: 1.75rem;
             background: rgba(227, 227, 227, 1);
             background-image: linear-gradient(var(--gray-300), var(--gray-300));
+            transition: background .5s ease-in-out;
             background-size: 40% 100%;
             background-repeat: no-repeat;
 
@@ -357,7 +358,6 @@ main {
               border-radius: 50%;
               background: transparent; 
               cursor: pointer;
-              transition: background .3s ease-in-out;
             }
           }
         }
@@ -375,6 +375,8 @@ main {
         position: relative;
         margin-top: 0.125rem;
         padding: 0.5rem 0.5rem 0.75rem 0.5rem;
+        height: 2.75rem;
+        transition: height 0.2s ease;
 
         & summary {
           display: inline-flex;
@@ -497,6 +499,16 @@ main {
       }
       & details:first-child {
         margin-top: 1rem;
+      }
+      & details > *:not(summary) {
+        opacity: 0;
+        transform: translateY(-0.5rem);
+      }
+      & details[open] > *:not(summary) {
+        opacity: 1;
+        transform: translateY(0);
+        transition: opacity 200ms ease,
+            transform 300ms ease;
       }
     }
   }
