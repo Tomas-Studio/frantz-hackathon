@@ -115,6 +115,7 @@ header {
 
     /* nav buttons styles */
     & button {
+      background: transparent;
       border-radius: 0.5rem;
       column-gap: 0.5rem;
       border: none;
@@ -127,6 +128,7 @@ header {
       color: var(--f-light);
       transition: background-color 0.25s;
       cursor: pointer;
+      
     }
 
     & .notification {
@@ -221,6 +223,10 @@ header {
   }
 }
 
+#profile-name {
+  display: none;
+}
+
 /* button styles */
 
 .btn {
@@ -238,6 +244,31 @@ header {
     border: 1px solid rgba(0,0,0,0.1);
     color: rgba(50, 50, 50, 1);
     box-shadow: 0px -1px 0px 0px rgba(181, 181, 181, 1) inset;
+    display: none;
+
+    &:hover {
+      background: rgba(247, 247, 247, 1);
+    }
+    &:active {
+      background: rgba(247, 247, 247, 1);
+      box-shadow: 0px 2px 1.5px 0px rgba(226, 226, 226, 1) inset;
+      border: 1px solid transparent;
+    }
+    &:focus-visible {
+      outline: 2px solid var(--focused);
+      outline-offset: 1px;
+    }
+  }
+
+  &.btn-light-mobile {
+    max-width: 50rem;
+    height: 1.75rem;
+    padding: 0.75rem;
+    background: white;
+    border: 1px solid rgba(0,0,0,0.1);
+    color: rgba(50, 50, 50, 1);
+    box-shadow: 0px -1px 0px 0px rgba(181, 181, 181, 1) inset;
+    display: block;
 
     &:hover {
       background: rgba(247, 247, 247, 1);
@@ -332,6 +363,7 @@ header {
 
     &.btn-icon-dark {
       background: transparent;
+      height: max-content;
     }
 
     &:focus-visible {
@@ -340,7 +372,6 @@ header {
     }
   }
 }
-
 
 /* main section */
 
@@ -353,21 +384,24 @@ main {
   & .alert {
     max-width: 50rem;
     min-height: 3.5rem;
+    padding-bottom: 1rem;
     width: 100%;
+    background-color: var(--gray-300);
 
     &.wrapper {
-      padding: 0.75rem 1rem;
-      background-color: var(--gray-300);
+      padding: 0.75rem 0.5rem 0.75rem 1rem;
+      /* background-color: var(--gray-300); */
       display: flex;
       justify-content: space-between;
       align-items: center;
-      column-gap: 0.5rem;
+      /* column-gap: 0.5rem; */
       /* border-radius: 0.5rem; */
 
       & p {
         font-weight: 500;
         font-size: var(--text-13);
         color: var(--f-light);
+        
       }
 
       & div {
@@ -535,13 +569,14 @@ main {
         }
         & .content {
           margin-top: 1rem;
-          margin-left: 2rem;
+          padding-left: 2rem;
+          padding-right: 0.5rem;
           font-size: var(--text-13);
           font-weight: 500;
           width: 100%;
           & p {
             color: var(--f-mid);
-            width: 64%;
+            width: 100%;
             margin-bottom: 1rem;
             & a {
               color: var(--focused);
@@ -557,6 +592,7 @@ main {
           position: absolute;
           top: 0.625rem;
           right: 0.5rem;
+          display: none;
 
           &:before {
             content: '';
@@ -634,37 +670,64 @@ main {
   }
 
   header{
-
-    & button {
-      background: var(--gray-200);
+    & div {
+      & button {
+        background: var(--gray-200);
   
-      &:hover {
-        background: var(--gray-100);
-      }
-      &:active {
-        background: var(--gray-50);
-      }
-      &:focus-visible {
-        outline: 2px solid var(--focused);
-        outline-offset: 1px;
+        & button.profile-menu {
+        }
+    
+        &:hover {
+          background: var(--gray-100);
+        }
+        &:active {
+          background: var(--gray-50);
+        }
+        &:focus-visible {
+          outline: 2px solid var(--focused);
+          outline-offset: 1px;
+        }
       }
     }
   }
 
+  #profile-name {
+    display: block;
+  }
+
   main {
-    & .alert{ 
+    & .alert { 
       min-width: 50rem;
-      &.wrapper {
-        border-radius: 0.5rem;
+      padding-bottom: 0;
+      border-radius: 0.5rem;
+    }
+
+    & .btn {
+      &.btn-light {
+        display: block;
+      }
+      &.btn-light-mobile {
+        display: none;
       }
     }
 
     & .guide {
       border-radius: 1.125rem;
-    }
+
+      & .check-list {
+        & details {
+          & .content {
+            padding-right: 0;
+            width: 68%;
+          }
+          & .content-img {
+            display: block
+          }
+        }
+      }
+    }   
   }
 }
-
 
 /* keyframes for animation */
 
