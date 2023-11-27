@@ -354,7 +354,7 @@ main {
       /* background-color: var(--gray-300); */
       display: flex;
       justify-content: space-between;
-      /* align-items: center; */
+      align-items: center;
       /* column-gap: 0.5rem; */
       /* border-radius: 0.5rem; */
 

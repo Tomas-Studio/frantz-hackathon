@@ -7,6 +7,8 @@ const range = document.querySelector('#range')
 const checkList = document.querySelector('.check-list')
 const setupList = document.querySelectorAll('.setup-detail')
 const track = document.querySelector('.track')
+const closeWrapper = document.querySelector('#close-wrapper')
+const alertDiv = document.querySelector('.wrapper')
 
 // variables
 let completed = []
@@ -16,6 +18,13 @@ selectBtn.forEach((btn, idx) => {
   btn.addEventListener("click", ()=> {
     window.open('https://shopify.com/pricing', '_blank')
   })
+})
+
+closeWrapper.addEventListener("click", () => {
+  alertDiv.style.display = 'none';
+  selectBtn[1].style.display = 'none';
+  let parent = alertDiv.parentNode
+  parent.style.backgroundColor = 'transparent'
 })
 
 toggleGuide.addEventListener("click", () => {
