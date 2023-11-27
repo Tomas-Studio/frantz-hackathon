@@ -414,7 +414,7 @@ main {
         position: relative;
         margin-top: 0.125rem;
         padding: 0.5rem 0.5rem 0.75rem 0.5rem;
-        height: 2.75rem;
+        height: auto;
         transition: height 0.2s ease;
 
         & summary {
@@ -550,14 +550,11 @@ main {
         margin-top: 1rem;
       }
       & details > *:not(summary) {
-        opacity: 0;
         transform: translateY(-0.5rem);
       }
       & details[open] > *:not(summary) {
-        opacity: 1;
         transform: translateY(0);
-        transition: opacity 200ms ease,
-            transform 300ms ease;
+        transition: transform 500ms ease;
       }
     }
   }

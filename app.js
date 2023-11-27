@@ -43,12 +43,11 @@ setupList.forEach((item, idx) => {
     }
   })
 
-  item.addEventListener('toggle', ()=> {
+  item.addEventListener('toggle', (event)=> {
     if(item.open){
-      item.style.height = `${item.scrollHeight + 20}px`
+      event.preventDefault()
+      item.style.height = 'auto'
       closeOthers(idx)
-    } else {
-      item.style.height = '2.75rem'
     }
   })
 })
