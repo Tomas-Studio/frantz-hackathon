@@ -290,7 +290,7 @@ main {
       justify-content: space-between;
       align-items: center;
       column-gap: 0.5rem;
-      border-radius: 0.5rem;
+      /* border-radius: 0.5rem; */
 
       & p {
         font-weight: 500;
@@ -314,7 +314,7 @@ main {
     gap: 1rem;
     font-family: inherit;
     background: white;
-    border-radius: 1.125rem;
+    /* border-radius: 1.125rem; */
     box-shadow: 0px 1px 0px 0px rgba(0, 0, 0, 0.05);
 
     & .guide-header {
@@ -582,9 +582,14 @@ main {
   main {
     & .alert{ 
       min-width: 50rem;
+      &.wrapper {
+        border-radius: 0.5rem;
+      }
     }
 
-    & .guide {}
+    & .guide {
+      border-radius: 1.125rem;
+    }
   }
 }
 
