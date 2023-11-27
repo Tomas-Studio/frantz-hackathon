@@ -2,8 +2,7 @@ import './app.css'
 
 // get elements 
 const toggleGuide = document.querySelector(".btn-icon-light-2")
-const selectBtn = document.querySelector('#select-plan')
-const selectBtn2 = document.querySelector('#select-plan-2')
+const selectBtn = document.querySelectorAll('#select-plan')
 const range = document.querySelector('#range')
 const checkList = document.querySelector('.check-list')
 const setupList = document.querySelectorAll('.setup-detail')
@@ -13,12 +12,10 @@ const track = document.querySelector('.track')
 let tracking = []
 
 // control element & styles
-selectBtn.addEventListener("click", ()=> {
-  window.open('https://shopify.com/pricing', '_blank')
-})
-
-selectBtn2.addEventListener("click", ()=> {
-  window.open('https://shopify.com/pricing', '_blank')
+selectBtn.forEach((btn, idx) => {
+  btn.addEventListener("click", ()=> {
+    window.open('https://shopify.com/pricing', '_blank')
+  })
 })
 
 toggleGuide.addEventListener("click", () => {
