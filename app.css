@@ -552,6 +552,7 @@ main {
           position: absolute;
           top: 0.625rem;
           right: 0.5rem;
+          display: none;
 
           &:before {
             content: '';
@@ -672,10 +673,17 @@ main {
 
     & .guide {
       border-radius: 1.125rem;
-    }
+
+      & .check-list {
+        & details {
+          & .content-img {
+            display: block
+          }
+        }
+      }
+    }   
   }
 }
-
 
 /* keyframes for animation */
 
