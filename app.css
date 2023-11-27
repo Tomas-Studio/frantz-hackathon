@@ -115,6 +115,7 @@ header {
 
     /* nav buttons styles */
     & button {
+      background: transparent;
       border-radius: 0.5rem;
       column-gap: 0.5rem;
       border: none;
@@ -127,6 +128,7 @@ header {
       color: var(--f-light);
       transition: background-color 0.25s;
       cursor: pointer;
+      
     }
     
     & button.notification-menu {
@@ -135,6 +137,8 @@ header {
     
     & button.profile-menu {
       padding: 0.125rem 0.125rem 0.125rem 0.5rem;
+
+       
 
       & div {
         background: #36FBA1;
@@ -147,6 +151,10 @@ header {
       }
     }
   }
+}
+
+#profile-name {
+  display: none;
 }
 
 /* button styles */
@@ -593,21 +601,29 @@ main {
   }
 
   header{
-
-    & button {
-      background: var(--gray-200);
+    & div {
+      & button {
+        background: var(--gray-200);
   
-      &:hover {
-        background: var(--gray-100);
-      }
-      &:active {
-        background: var(--gray-50);
-      }
-      &:focus-visible {
-        outline: 2px solid var(--focused);
-        outline-offset: 1px;
+        & button.profile-menu {
+        }
+    
+        &:hover {
+          background: var(--gray-100);
+        }
+        &:active {
+          background: var(--gray-50);
+        }
+        &:focus-visible {
+          outline: 2px solid var(--focused);
+          outline-offset: 1px;
+        }
       }
     }
+  }
+
+  #profile-name {
+    display: block;
   }
 
   main {
