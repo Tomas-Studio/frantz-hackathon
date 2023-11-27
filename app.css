@@ -112,6 +112,7 @@ header {
   & .menus { 
     display: flex;
     column-gap: 0.5rem;
+    position: relative;
 
     /* nav buttons styles */
     & button {
@@ -132,9 +133,53 @@ header {
     }
 
     & .notification {
-      position: relative;
-      & button.notification-menu {
+
+      & button.notification-toggle {
         padding: 0.375rem;  
+      }
+      & .notification-menu {
+        position: absolute;
+        top: calc(100% + 1.25rem);
+        right: 0;
+        width: max-content;
+        background: white;
+        padding: 1rem;
+        border: 1px solid var(--stroke-50);
+        box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.05);
+        border-radius: 0.875rem;display: flex;
+        display: flex;
+        flex-direction: column;
+        row-gap: 1rem;
+        display: none;
+
+        &.show {
+          display: block;
+        }
+
+        & div:nth-of-type(1) {
+          display: flex;
+          align-items: center;      
+          justify-content: space-between;
+
+          & h6 {
+            font-size: var(--text-14);
+            font-weight: 600;
+            color: var(--f-dark);
+          }
+          & span {
+            display: flex;
+            align-items: center;
+            column-gap: 0.5rem;      
+          }
+        }
+        & div:nth-of-type(2) {
+          background: var(--hover);
+          padding: 1rem;
+          font-size: var(--text-13);
+          font-weight: 600;
+          line-height: 18.2px;
+          color: var(--f-mid);
+        }
       }
     }
     
@@ -162,6 +207,11 @@ header {
         border: 1px solid var(--stroke-50);
         box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.05);
         border-radius: 0.875rem;
+        display: none;
+
+        &.show {
+          display: block;
+        }
 
         & .head {
           padding: 0.375rem;
@@ -225,7 +275,7 @@ header {
             display: flex;
             flex-direction: column;
             row-gap: 0.25rem;
-            padding: 0 0.5rem 0 0.5rem ;
+            padding: 0.5rem;
             & h6 {
               color: var(--f-dark);
               font-weight: 600;
@@ -252,6 +302,9 @@ header {
           border-radius: 0.5rem;
           &:hover {
             background: var(--hover);
+          }
+          &:active {
+            background: var(--pressed);
           }
           &:focus-visible {
             outline: 2px solid var(--focused);
@@ -710,12 +763,12 @@ main {
   }
 
   header{
-    & div {
+    & .menus {
       & button {
         background: var(--gray-200);
   
-        & button.profile-menu {
-        }
+        /* & button.profile-menu {
+        } */
     
         &:hover {
           background: var(--gray-100);
