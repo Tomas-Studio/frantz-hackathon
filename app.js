@@ -2,27 +2,56 @@ import './app.css'
 
 // get elements 
 const toggleGuide = document.querySelector("#toggle-setup")
-const selectBtn = document.querySelectorAll('#select-plan')
+const selectBtn = document.querySelectorAll('.select-plan')
 const range = document.querySelector('#range')
 const checkList = document.querySelector('.check-list')
 const setupList = document.querySelectorAll('.setup-detail')
 const track = document.querySelector('.track')
 const closeAlert = document.querySelector('#close-wrapper')
 const alertDiv = document.querySelector('.wrapper')
+const notification = document.querySelector('.notification')
+const notificationBtn = document.querySelector('.notification-toggle')
+const notificationMenu = document.querySelector('.notification-menu')
+const profile = document.querySelector('.profile')
 const profileBtn = document.querySelector('.profile-toggle')
 const profileMenu = document.querySelector('.profile-menu')
 
 // variables
 let completed = []
+let active = -1
 
 /**
  *  control element & styles
  */ 
 
-//
-profileBtn.addEventListener('click', ()=> {
-  profileMenu.classList.toggle('show')
+// control notification menu actions
+notificationBtn.addEventListener('click', ()=> {
+  notificationMenu.classList.toggle('show-notificaion')
 })
+
+// control profile menu actions
+profileBtn.addEventListener('click', ()=> {
+  profileMenu.classList.toggle('show-profile')
+})
+
+document.addEventListener('keydown', (event) => {
+  if(event.code === 40){
+
+  }
+})
+
+// handle outside click
+document.addEventListener('click', (event) => {
+  if(!profile.contains(event.target)){
+    profileMenu.classList.remove('show-profile')
+  }
+})
+document.addEventListener('click', (event) => {
+  if(!notification.contains(event.target)){
+    notificationMenu.classList.remove('show-notification')
+  }
+})
+
 
 // open shopify pricing
 selectBtn.forEach((btn, idx) => {
