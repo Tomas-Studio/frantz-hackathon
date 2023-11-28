@@ -573,155 +573,168 @@ main {
       height: 0;
       transition: height 0.2s linear;
 
-      & details {
-        border-radius: 0.625rem;
+      & section {
         position: relative;
-        margin-top: 0.125rem;
-        padding: 0.5rem 0.5rem 0.75rem 0.5rem;
-        height: auto;
-        transition: height 0.2s ease;
 
-        & summary {
-          display: inline-flex;
-          align-items: center;
-          column-gap: 0.5rem;
-          list-style: none;
-          width: 100%;
-          cursor: pointer;
-
-          & label {
-            position: relative;
-            width: 1.5rem;
-            height: 1.5rem;
-            cursor: pointer;
-
-            & input[type="checkbox"] {
-              -webkit-appearance: none;
-              & + span > svg {
-                position: absolute;
-                top: 2px;
-                left: 2px;
-                opacity: 0;
-              }
-
-              & + span > svg:nth-of-type(1) {
-                animation: checkSvgAnimation 70ms linear;
-                opacity: 1;
-              }
-              & + span:hover > svg:nth-of-type(2) {
-                opacity: 1;
-              }
-              & + span:hover > svg:nth-of-type(1) {
-                opacity: 0;
-              }
-              &:checked + span > svg:nth-of-type(3){
-                animation: checkSvgAnimation 100ms linear;
-              }
-              &:checked + span > svg:nth-of-type(4){
-                animation: rotate 500ms linear;
-                animation-delay: 100ms;
-              }
-              &:checked + span > svg:nth-of-type(2){
-                opacity: 0;
-              }
-              &:checked + span > svg:nth-of-type(1){
-                opacity: 0;
-              }
-              &:checked + span > svg:nth-of-type(5){
-                animation: checkSvgAnimation 100ms linear;
-                animation-delay: 600ms;
-              }
-              &:checked + span > svg:nth-of-type(6){
-                animation: checked 500ms linear infinite;
-                animation-delay: 700ms;
-              }
-              &:focus-visible + span > svg:nth-of-type(2) {
-                opacity: 1;
-              }
-              &:focus-visible + span > svg:nth-of-type(1) {
-                opacity: 0;
-              }
-            }
-
-            &:focus {
-              outline: none;
-              border: none;
-            }
-          }
-
-          & h5{
-            font-weight: 500;
-            font-size: var(--text-13);
-            color: var(--f-dark);
-          }
-
-          &:focus-visible {
-            outline: 1px solid var(--stroke-50);
-            outline-offset: 5px;
-            border-radius: 0.2rem;
-          }
-        }
-        & .content {
-          margin-top: 1rem;
-          padding-left: 2rem;
-          padding-right: 0.5rem;
-          font-size: var(--text-13);
-          font-weight: 500;
-          width: 100%;
-          & p {
-            color: var(--f-mid);
-            width: 100%;
-            margin-bottom: 1rem;
-            & a {
-              color: var(--focused);
-              text-decoration: none;
-              &:focus-visible {
-                text-decoration: underline;
-                outline: none;
-              }
-            }
-          }
-        }
-        & .content-img {
+        & label {
           position: absolute;
-          top: 0.625rem;
-          right: 0.5rem;
-          display: none;
+          width: 1.5rem;
+          height: 1.5rem;
+          cursor: pointer;
+          top: 0.5rem;
+          left: 0.5rem;
+          z-index: 1;
 
-          &:before {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
+
+          & input[type="checkbox"] {
+            -webkit-appearance: none;
+            & + span > svg {
+              position: absolute;
+              top: 2px;
+              left: 2px;
+              opacity: 0;
+            }
+
+            & + span > svg:nth-of-type(1) {
+              animation: checkSvgAnimation 70ms linear;
+              opacity: 1;
+            }
+            & + span:hover > svg:nth-of-type(2) {
+              opacity: 1;
+            }
+            & + span:hover > svg:nth-of-type(1) {
+              opacity: 0;
+            }
+            &:checked + span > svg:nth-of-type(3){
+              animation: checkSvgAnimation 100ms linear;
+            }
+            &:checked + span > svg:nth-of-type(4){
+              animation: rotate 500ms linear;
+              animation-delay: 100ms;
+            }
+            &:checked + span > svg:nth-of-type(2){
+              opacity: 0;
+            }
+            &:checked + span > svg:nth-of-type(1){
+              opacity: 0;
+            }
+            &:checked + span > svg:nth-of-type(5){
+              animation: checkSvgAnimation 100ms linear;
+              animation-delay: 600ms;
+            }
+            &:checked + span > svg:nth-of-type(6){
+              animation: checked 500ms linear infinite;
+              animation-delay: 700ms;
+            }
+            &:focus-visible + span > svg:nth-of-type(2) {
+              opacity: 1;
+            }
+            &:focus-visible + span > svg:nth-of-type(1) {
+              opacity: 0;
+            }
+          }
+
+          &:focus {
+            outline: none;
+            border: none;
+          }
+        }
+
+        & details {
+          border-radius: 0.625rem;
+          position: relative;
+          margin-top: 0.125rem;
+          padding: 0.5rem 0.5rem 0.75rem 0.5rem;
+          height: auto;
+          transition: height 0.2s ease;
+  
+          & summary {
+            display: inline-flex;
+            align-items: center;
+            column-gap: 0.5rem;
+            list-style: none;
             width: 100%;
-            height: 100%;
-            z-index: 2;
-            background: linear-gradient(to top, rgba(243, 243, 243, 1) 0%, rgba(243, 243, 243, 0.9) 15%, rgba(255, 255, 255, 0) 30%);
+            cursor: pointer;
+            margin-left: 2rem;
+           
+  
+            & h5{
+              font-weight: 500;
+              font-size: var(--text-13);
+              color: var(--f-dark);
+            }
+  
+            &:focus-visible {
+              outline: 1px solid var(--stroke-50);
+              outline-offset: 5px;
+              border-radius: 0.2rem;
+            }
+          }
+          & .content {
+            margin-top: 1rem;
+            padding-left: 2rem;
+            padding-right: 0.5rem;
+            font-size: var(--text-13);
+            font-weight: 500;
+            width: 100%;
+            & p {
+              color: var(--f-mid);
+              width: 100%;
+              margin-bottom: 1rem;
+              & a {
+                color: var(--focused);
+                text-decoration: none;
+                &:focus-visible {
+                  text-decoration: underline;
+                  outline: none;
+                }
+              }
+            }
+          }
+          & .content-img {
+            position: absolute;
+            top: 0.625rem;
+            right: 0.5rem;
+            display: none;
+            z-index: 3;
+  
+            &:before {
+              content: '';
+              position: absolute;
+              bottom: 0;
+              left: 0;
+              width: 100%;
+              height: 100%;
+              z-index: 5;
+              background: linear-gradient(to top, rgba(243, 243, 243, 1) 0%, rgba(243, 243, 243, 0.9) 15%, rgba(255, 255, 255, 0) 30%);
+            }
           }
         }
-      }
-      & details[open] {
-        background: rgba(243, 243, 243, 1);
+        & details[open] {
+          background: rgba(243, 243, 243, 1);
+  
+          & summary {
+            & h5{
+              font-weight: 600;
+            }
+          }
+        }
+        & details:hover {
+          background: rgba(243, 243, 243, 1);
+        }
+        & details:first-child {
+          margin-top: 1rem;
+        }
+        & details > *:not(summary) {
+          transform: translateY(-0.5rem);
+        }
+        & details[open] > *:not(summary) {
+          transform: translateY(0);
+          transition: transform 500ms ease;
+        }
 
-        & summary {
-          & h5{
-            font-weight: 600;
-          }
-        }
       }
-      & details:hover {
-        background: rgba(243, 243, 243, 1);
-      }
-      & details:first-child {
-        margin-top: 1rem;
-      }
-      & details > *:not(summary) {
-        transform: translateY(-0.5rem);
-      }
-      & details[open] > *:not(summary) {
-        transform: translateY(0);
-        transition: transform 500ms ease;
-      }
+
     }
   }
 }
@@ -831,13 +844,16 @@ main {
       border-radius: 1.125rem;
 
       & .check-list {
-        & details {
-          & .content {
-            padding-right: 0;
-            width: 68%;
-          }
-          & .content-img {
-            display: block
+
+        & section {
+          & details {
+            & .content {
+              padding-right: 0;
+              width: 68%;
+            }
+            & .content-img {
+              display: block;
+            }
           }
         }
       }

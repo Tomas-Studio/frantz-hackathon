@@ -5,7 +5,7 @@ const toggleGuide = document.querySelector("#toggle-setup")
 const selectBtn = document.querySelectorAll('.select-plan')
 const range = document.querySelector('#range')
 const checkList = document.querySelector('.check-list')
-const setupList = document.querySelectorAll('.setup-detail')
+const setupList = document.querySelectorAll('section')
 const track = document.querySelector('.track')
 const closeAlert = document.querySelector('#close-wrapper')
 const alertDiv = document.querySelector('.wrapper')
@@ -117,10 +117,10 @@ setupList.forEach((item, idx) => {
     }
   })
 
-  item.addEventListener('toggle', (event)=> {
-    if(item.open){
+  item.querySelector('.setup-detail').addEventListener('toggle', (event)=> {
+    if(item.querySelector('.setup-detail').open){
       event.preventDefault()
-      item.style.height = 'auto'
+      item.querySelector('.setup-detail').style.height = 'auto'
       closeDetails(idx)
     }
   })
@@ -130,19 +130,19 @@ setupList.forEach((item, idx) => {
 function closeDetails(idx1) {
   setupList.forEach((item2, idx2) => {
     if(idx1 !== idx2){
-      item2.open = false
+      item2.querySelector('.setup-detail').open = false
     }
   })
 }
 
 function closePrevious(idx){
   if(idx >= 0 && idx <= 4)
-    setupList[idx].open = false
+    setupList[idx].querySelector('.setup-detail').open = false
 }
 
 function openNext(idx) {
   if(idx >= 0 && idx <= 4)
-    setupList[idx].open = true
+    setupList[idx].querySelector('.setup-detail').open = true
 }
 
 // update range style to reflect completion
