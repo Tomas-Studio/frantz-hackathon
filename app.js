@@ -9,12 +9,14 @@ const setupList = document.querySelectorAll('.setup-detail')
 const track = document.querySelector('.track')
 const closeAlert = document.querySelector('#close-wrapper')
 const alertDiv = document.querySelector('.wrapper')
-const notification = document.querySelector('.notification')
+const notificationh = document.querySelector('.notification')
 const notificationBtn = document.querySelector('.notification-toggle')
 const notificationMenu = document.querySelector('.notification-menu')
 const profile = document.querySelector('.profile')
 const profileBtn = document.querySelector('.profile-toggle')
 const profileMenu = document.querySelector('.profile-menu')
+const profileMenuLinks = profileMenu.querySelectorAll('a')
+
 
 // variables
 let completed = []
@@ -34,24 +36,38 @@ profileBtn.addEventListener('click', ()=> {
   profileMenu.classList.toggle('show-profile')
 })
 
+// arrow up and down to navigate profile links
 document.addEventListener('keydown', (event) => {
-  if(event.code === 40){
-
+  if(event.key === "ArrowDown"){
+    if(active < profileMenuLinks.length - 1){
+      active++
+      profileMenuLinks[active].focus()
+    }
+  }else if (event.key === "ArrowUp"){
+    if(active > 0){
+      active--
+      profileMenuLinks[active].focus()
+    }
   }
 })
 
-// handle outside click
+// close profile link when any link is clicked
+profileMenuLinks.forEach((item) => {
+  item.addEventListener('click', ()=> {
+    profileMenu.classList.remove('show-profile')
+  })
+})
+
+
+// handle menus outside click
 document.addEventListener('click', (event) => {
-  if(!profile.contains(event.target)){
+  if(!notificationh.contains(event.target)){
+    notificationMenu.classList.remove('show-notificaion')
+  }
+  if(!profile.contains(event.target) && profileMenu.classList.contains('show-profile')){
     profileMenu.classList.remove('show-profile')
   }
 })
-document.addEventListener('click', (event) => {
-  if(!notification.contains(event.target)){
-    notificationMenu.classList.remove('show-notification')
-  }
-})
-
 
 // open shopify pricing
 selectBtn.forEach((btn, idx) => {
@@ -93,6 +109,11 @@ setupList.forEach((item, idx) => {
     } else {
       completed.push(value)
       updateRange()
+      const arrIdx = completed.indexOf(value)
+      if(event.target.checked && arrIdx === +event.target.value - 1 ){
+        closePrevious(arrIdx - 1)
+        openNext(arrIdx + 1)
+      }
     }
   })
 
@@ -114,8 +135,14 @@ function closeDetails(idx1) {
   })
 }
 
-function openNext() {
+function closePrevious(idx){
+  if(idx >= 0 && idx <= 4)
+    setupList[idx].open = false
+}
 
+function openNext(idx) {
+  if(idx >= 0 && idx <= 4)
+    setupList[idx].open = true
 }
 
 // update range style to reflect completion
